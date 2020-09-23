@@ -1,0 +1,91 @@
+{
+    "ver": "0.0.1",
+    "authors": [
+        "seanjungbluth"
+    ],
+    "contact": "help@kbase.us",
+    "visible" : true,
+    "categories": ["active","assembly","communities"],
+    "widgets": {
+        "input": "kbaseNarrativeMethodInput",
+        "output" : "no-display"
+    },
+    "parameters": [
+        {
+            "id": "assembly_ref",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type": "text",
+            "text_options": {
+                "valid_ws_types" : ["KBaseGenomes.ContigSet", "KBaseGenomeAnnotations.Assembly"]
+            }
+        },
+        {
+            "id": "output_assembly_name",
+            "optional": false,
+            "advanced": false,
+            "allow_multiple": false,
+            "default_values": [ "" ],
+            "field_type" : "text",
+            "text_options" : {
+                "valid_ws_types" : [ "KBaseGenomeAnnotations.Assembly" ],
+                "is_output_name" : true
+            }
+        }
+    ],
+    "behavior": {
+        "service-mapping": {
+            "url": "",
+            "name": "kb_eukrep",
+            "method": "run_kb_eukrep",
+            "input_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "workspace_name"
+                },
+                {
+                    "input_parameter": "assembly_ref",
+                    "target_type_transform": "resolved-ref",
+                    "target_property": "assembly_ref"
+                },
+                {
+                    "input_parameter": "output_assembly_name",
+                    "target_property": "output_assembly_name"
+                }
+            ],
+            "output_mapping": [
+                {
+                    "narrative_system_variable": "workspace",
+                    "target_property": "wsName"
+                },
+                {
+                    "service_method_output_path": [0, "result_directory"],
+                    "target_property": "result_directory"
+                },
+                {
+                    "service_method_output_path": [0,"assembly_obj_ref"],
+                    "target_property": "assembly_obj_ref"
+                },
+                {
+                    "service_method_output_path": [0,"assembly_obj_ref"],
+                    "target_property": "objRef"
+                },
+                {
+                    "service_method_output_path": [0, "report_name"],
+                    "target_property": "report_name"
+                },
+                {
+                    "service_method_output_path": [0, "report_ref"],
+                    "target_property": "report_ref"
+                },
+                {
+                    "constant_value": "16",
+                    "target_property": "report_window_line_height"
+                }
+            ]
+        }
+    },
+    "job_id_output_field": "docker"
+}

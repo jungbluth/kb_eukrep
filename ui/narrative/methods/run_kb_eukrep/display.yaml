@@ -1,0 +1,66 @@
+#
+# define display information
+#
+name     : Classify and extract eukaryotic sequences from metagenomic assemblies using EukRep - v0.6.7
+subtitle : Classify and extract eukaryotic sequences from metagenomic assemblies
+tooltip  : Classify and extract eukaryotic sequences from metagenomic assemblies
+
+icon: eukrep.png
+
+screenshots: []
+
+#
+# define a set of similar methods that might be useful to the user
+#
+suggestions:
+    apps:
+        related:
+            [kbase-metabat, kb_concoct, kb_cocacola]
+        next:
+            [MetaAnnot]
+    methods:
+        related:
+            []
+        next:
+            []
+
+#
+# Configure the display and description of parameters
+#
+parameters :
+    assembly_ref :
+        ui-name : Assembly
+        short-hint : Genome assembly object
+        long-hint  : Genome assembly or bin that you want to improve
+
+    output_assembly_name :
+        ui-name : Output Assembly Name
+        short-hint : name for the output assembly
+        long-hint  : name for the output assembly
+
+description : |
+
+    <p>EukRep is a tool to classify and extract eukaryotic sequences from metagenomic assemblies.</p>
+    <p><hr></p>
+    <p><hr></p>
+    <p><i>Implemented for KBase by <a href="mailto:sjungbluth@lbl.gov">Sean Jungbluth(sjungbluth@lbl.gov)</a></i></p>
+    <p><hr></p>
+    <p>This method assumes that you already have a an existing assembly that contains eukaryotic contigs.</p>
+    <p><hr></p>
+    <p><b>Configuration:</b></p>
+    <p><b><i>Assembly Object:</i></b> The Assembly Object is any metagenome assembly.</p>
+    <p><hr></p>
+    <p><b>Output:</b></p>
+    <p><b><i>Output Object:</i></b>The Assembly Object represents improved or cirularized assembly. This object can be used for downstream analysis.</p>
+    <p><b><i>Downloadable files:</i></b> The enitre output of the EukRep run may be downloaded as a zip file.</p>
+
+publications:
+    -
+        display-text : |
+            West PT, Probst AJ, Grigoriev IV, Thomas BC, Banfield JF. Genome-reconstruction for eukaryotes from complex natural microbial communities. Genome Research. 2018. doi:10.1101/gr.228429.117740
+        link: https://doi.org/10.1101/gr.228429.117
+
+    -
+        display-text : |
+            EukRep source:
+        link: https://github.com/patrickwest/EukRep
